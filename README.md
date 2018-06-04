@@ -1,6 +1,6 @@
-# dongliweb
+# xx项目说明
 
-东力项目前端项目，主要是 react + redux 技术。运行前请自行安装好 node 和 npm。npm 可换为国内淘宝镜像源以提升安装速度，命令如下：
+xx项目前端项目，主要是 react + redux 技术。运行前请自行安装好 node 和 npm。npm 可换为国内淘宝镜像源以提升安装速度，命令如下：
 ```bat
 npm config set registry https://registry.npm.taobao.org
 ```
