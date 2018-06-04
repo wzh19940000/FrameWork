@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === 'development') {
     window.axios = axios
 }
 
-const store = (process.env.NODE_ENV === 'production' || (!window.devToolsExtension())) ? (            
+const store = (process.env.NODE_ENV === 'production' || (!window.devToolsExtension)) ? (          
 // const store = (true) ? (                //这里拦截器会判断浏览器是否安装了 Redux devTool 扩展程序，如果安装了，一定要确保版本可用
     createStore(reducer, applyMiddleware(thunkMiddleware))
 ) : (
