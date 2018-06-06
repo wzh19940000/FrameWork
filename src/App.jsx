@@ -1,3 +1,10 @@
+/*
+ * @Author: mikey.zhaopeng 
+ * @Date: 2018-06-06 14:22:57 
+ * @Last Modified by: mikey.zhaopeng
+ * @Last Modified time: 2018-06-06 14:23:21
+ */
+
 import React from 'react'
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import connect from '@connect'
@@ -15,8 +22,8 @@ const ManagePage = Loadable({
     loading: Loading  
 })
 
-@hot(module)
-@connect('user')
+@hot(module)            //装饰器，热加载
+@connect('user')             //connect装饰器连接store
 export default class App extends React.Component {
     render() {
         return (
