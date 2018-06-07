@@ -17,6 +17,10 @@ const Organization = Loadable({
     loader: () => import('@modules/organization'),
     loading: Loading
 })
+const GetDate = Loadable({
+    loader: () => import('@modules/getDate'),
+    loading: Loading
+})
 
 const Root = styled(Layout)`
     min-height: 100vh;
@@ -76,6 +80,7 @@ export default class ManagePage extends React.Component {
                     <MenuWrapper>
                         <LinkItem path='/access' type='file' label='access'></LinkItem>
                         <LinkItem path='/organization' type='task' label='organization'></LinkItem>
+                        <LinkItem path='/getDate' type='task' label='getDate'></LinkItem>
                     </MenuWrapper>
                 </Sider>
                 <Layout>
@@ -84,6 +89,7 @@ export default class ManagePage extends React.Component {
                         <Switch>
                             <Route path='/access' component={Access}></Route>
                             <Route path='/organization' component={Organization}></Route>
+                            <Route path='/getDate' component={GetDate}></Route>
                         </Switch>
                     </Content>
                     <Footer>

@@ -3,12 +3,14 @@ import { connect } from 'react-redux'
 
 import access from './access/action'
 import organization from './organization/action'
+import getDate from './getDate/action'
 import user from './user/action'
 import fileView from './fileView/action'
 
 const actions = {
     access,
     organization,
+    getDate,
     user,
     fileView
 }

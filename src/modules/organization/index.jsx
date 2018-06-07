@@ -1,9 +1,11 @@
 import React from 'react'
 import connect from '@connect'
 import styled from 'styled-components'
+import { hot } from 'react-hot-loader'
 
 const Root = styled.div``
 
+@hot(module)
 @connect('organization')
 export default class Organization extends React.Component {
     async componentDidMount() {

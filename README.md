@@ -67,7 +67,16 @@ npm start
 
 ### 如何增加一个顶级模块
 顶级模块一般都要在 `src/modules` 新开辟文件夹。比如我们想新建一个名为`organization`的模块：
-1. 在 modules 目录下新建文件夹 organization，新建`index.jsx`作为模块顶层入口
+1. 在 modules 目录下新建文件夹 organization，新建`index.jsx`作为模块顶层入口。在顶部加入热加载引用并装饰：
+```js
+import { hot } from 'react-hot-loadable'
+
+// 模块热加载
+@hot(module)
+export default class NewModule extends React.Component {
+    //...
+}
+```
 
 2. 在`index.jsx`里写 React 组件并导出，这样一个简单模块完成
 
