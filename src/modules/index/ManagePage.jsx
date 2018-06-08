@@ -1,4 +1,5 @@
 import React from 'react'
+// import { Link, Route, Switch, Redirect } from 'react-router-dom'
 import { Link, Route, Switch, Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 import { Layout, Menu, Icon } from 'antd'
@@ -6,17 +7,24 @@ import Loadable from 'react-loadable'
 import { Loading } from '@components'
 import FileView from './FileView'
 
+
+
 const { Header, Footer, Sider, Content } = Layout
 const MenuItem = Menu.Item
 
+// import Access from '../access/index'              //非按需加载，页面渲染时就加载了（也许页面初次加载时并没有渲染这个组件，但是组件还是加载出来了）
+
 const Access = Loadable({
-    loader: () => import('@modules/access'),
+    loader: () => import('@modules/access'),         //函数形式按需加载(实现代码分片)，对比上面非按需加载，这里是触发了路由时才会去动态加载组件
     loading: Loading
 })
+
 const Organization = Loadable({
     loader: () => import('@modules/organization'),
-    loading: Loading
+    loading: Loading,
+    
 })
+
 const GetDate = Loadable({
     loader: () => import('@modules/getDate'),
     loading: Loading
@@ -44,11 +52,12 @@ const Root = styled(Layout)`
     }
 `
 
+//  <Link to='xxx' replace></Link> 中设置replace，防止重复点击一个按钮，而引起的重复路由堆栈报错。
 const LinkItem = ({ path, type, label }) => (
     <Route path={path}>
         {({ match }) => (
             <div className={match ? 'active' : ''}>
-                <Link to={path}>
+                <Link to={path} replace>                 
                     <Icon type={type} />
                     <span>{ label }</span>
                 </Link>
